@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cheemakurthi Charan | AI & Data Science</title>
+
+<style>
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #05060a;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(93, 76, 255, 0.20), transparent 30%),
+        radial-gradient(circle at 85% 70%, rgba(0, 174, 255, 0.12), transparent 30%);
+    z-index: -2;
+}
+
+/* Animated grid */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 55px 55px;
+    mask-image: linear-gradient(to bottom, black, transparent);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 7%;
+
+    background: rgba(5, 6, 10, 0.75);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #8c7cff;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #aeb4c3;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 140px 30px 80px;
+
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.eyebrow {
+    color: #8174ff;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.95;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: #8c7cff;
+}
+
+.title {
+    margin-top: 25px;
+    font-size: 21px;
+    color: #d4d7e1;
+}
+
+.bio {
+    margin-top: 15px;
+    max-width: 600px;
+    color: #9299aa;
+    line-height: 1.8;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+
+    padding: 13px 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background: rgba(255,255,255,0.05);
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.primary {
+    background: #8174ff;
+    border-color: #8174ff;
+}
+
+/* =========================
+   3D AI ORB
+========================= */
+
+.orb-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1000px;
+}
+
+.orb {
+    width: 300px;
+    height: 300px;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    animation: float 6s ease-in-out infinite;
+}
+
+.core {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: 75px;
+    left: 75px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #aaa0ff,
+            #342b6b 55%,
+            #080812
+        );
+
+    box-shadow:
+        0 0 40px rgba(126,110,255,0.5),
+        0 0 100px rgba(126,110,255,0.25);
+
+    transform: translateZ(50px);
+}
+
+.core small {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #c2bcff;
+}
+
+.ring {
+    position: absolute;
+
+    inset: 15px;
+
+    border: 1px solid rgba(140,124,255,0.5);
+
+    border-radius: 50%;
+}
+
+.ring1 {
+    transform: rotateX(70deg) rotateY(15deg);
+
+    animation:
+        rotate1 8s linear infinite;
+}
+
+.ring2 {
+    inset: 0;
+
+    transform: rotateY(70deg);
+
+    border-color: rgba(255,255,255,0.2);
+
+    animation:
+        rotate2 10s linear infinite;
+}
+
+.ring3 {
+    inset: 35px;
+
+    transform: rotateX(30deg);
+
+    border-color: rgba(0,200,255,0.25);
+
+    animation:
+        rotate3 7s linear infinite;
+}
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotateY(12deg);
+    }
+}
+
+@keyframes rotate1 {
+
+    to {
+        transform:
+            rotateX(70deg)
+            rotateY(15deg)
+            rotateZ(360deg);
+    }
+}
+
+@keyframes rotate2 {
+
+    to {
+        transform:
+            rotateY(430deg)
+            rotateZ(360deg);
+    }
+}
+
+@keyframes rotate3 {
+
+    to {
+        transform:
+            rotateX(30deg)
+            rotateZ(360deg);
+    }
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section.content {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 100px 30px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.section-number {
+    color: #8174ff;
+    font-family: monospace;
+}
+
+.section-title h2 {
+    font-size: 40px;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.glass {
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.09);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    gap: 40px;
+}
+
+.about-text {
+    font-size: 21px;
+    line-height: 1.8;
+    color: #d5d8e2;
+}
+
+.info {
+    display: grid;
+    gap: 20px;
+}
+
+.info strong {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.info span {
+    color: #8e96a8;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill {
+    padding: 11px 16px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    color: #d5d8e2;
+
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+
+    border-color: #8174ff;
+
+    box-shadow:
+        0 10px 30px rgba(129,116,255,0.15);
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.project {
+    min-height: 220px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.02)
+        );
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: 0.4s;
+
+    transform-style: preserve-3d;
+}
+
+.project:hover {
+    transform:
+        translateY(-10px)
+        rotateX(3deg)
+        rotateY(-3deg);
+
+    border-color: rgba(129,116,255,0.5);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.3);
+}
+
+.project-number {
+    color: #8174ff;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.project h3 {
+    margin-top: 15px;
+    font-size: 22px;
+}
+
+.project p {
+    margin-top: 12px;
+    color: #8e96a8;
+    line-height: 1.7;
+}
+
+.project-tech {
+    margin-top: 18px;
+    color: #aaa3ff;
+    font-size: 13px;
+}
+
+/* =========================
+   EDUCATION
+========================= */
+
+.two-column {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.two-column h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.two-column p {
+    color: #9aa1b1;
+    line-height: 1.8;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    text-align: center;
+}
+
+.contact-box {
+    text-align: center;
+}
+
+.contact-box p {
+    color: #9aa1b1;
+}
+
+.links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.links a {
+    text-decoration: none;
+
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    background: rgba(255,255,255,0.04);
+
+    transition: 0.3s;
+}
+
+.links a:hover {
+    background: #8174ff;
+
+    transform: translateY(-4px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 40px;
+
+    color: #686f80;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 850px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 130px;
+    }
+
+    .orb-container {
+        margin-top: 50px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid,
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+        letter-spacing: -3px;
+    }
+
+    section.content {
+        padding: 70px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+<a href="#" class="logo">
+CC<span>.</span>
+</a>
+
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div>
+
+<p class="eyebrow">
+PORTFOLIO / 2026
+</p>
+
+<h1>
+Cheemakurthi
+<span>Charan</span>
+</h1>
+
+<p class="title">
+B.Tech CSE – Data Science & Artificial Intelligence Student
+</p>
+
+<p class="bio">
+I'm a technology enthusiast exploring Artificial Intelligence,
+Data Science, Machine Learning and Software Development.
+I enjoy building practical solutions to real-world problems.
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn primary">
+View Projects
+</a>
+
+<a href="#contact" class="btn">
+Contact Me
+</a>
+
+</div>
+
+</div>
+
+
+<!-- 3D AI OBJECT -->
+
+<div class="orb-container">
+
+<div class="orb">
+
+<div class="ring ring1"></div>
+<div class="ring ring2"></div>
+<div class="ring ring3"></div>
+
+<div class="core">
+AI<br>
+<small>DATA</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="content" id="about">
+
+<div class="section-title">
+<span class="section-number">01</span>
+<h2>About Me</h2>
+</div>
+
+<div class="glass about-grid">
+
+<div>
+
+<p class="about-text">
+I am a B.Tech Computer Science student specializing in
+Data Science and Artificial Intelligence. My interests
+include AI, Machine Learning, Data Science, Full-Stack
+Development and Software Engineering.
+
+I am continuously improving my programming skills and
+working on projects that combine technology with
+real-world applications.
+</p>
+
+</div>
+
+<div class="info">
+
+<div>
+<strong>College</strong>
+<span>
+Dr. M.G.R. Educational and Research Institute
+</span>
+</div>
+
+<div>
+<strong>Degree</strong>
+<span>
+B.Tech CSE – Data Science & AI
+</span>
+</div>
+
+<div>
+<strong>Expected Graduation</strong>
+<span>
+2029
+</span>
+</div>
+
+<div>
+<strong>CGPA</strong>
+<span>
+8.54
+</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section class="content" id="skills">
+
+<div class="section-title">
+<span class="section-number">02</span>
+<h2>Skills</h2>
+</div>
+
+<div class="glass">
+
+<div class="skills">
+
+<span class="skill">Python</span>
+<span class="skill">Java</span>
+<span class="skill">C</span>
+<span class="skill">Data Science</span>
+<span class="skill">Artificial Intelligence</span>
+<span class="skill">Machine Learning</span>
+<span class="skill">Web Development</span>
+<span class="skill">Full-Stack Development</span>
+<span class="skill">SQL</span>
+<span class="skill">Git</span>
+<span class="skill">GitHub</span>
+<span class="skill">Problem Solving</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section class="content" id="projects">
+
+<div class="section-title">
+<span class="section-number">03</span>
+<h2>Projects</h2>
+</div>
+
+<div class="projects">
+
+
+<!-- PROJECT 1 -->
+
+<article class="project">
+
+<span class="project-number">
+PROJECT 01
+</span>
+
+<h3>
+SURAKSHA-XR
+</h3>
+
+<p>
+AR-Based Vocational Training Simulator for Industrial
+Safety. A mobile-first safety training concept designed
+to help industrial workers learn safety procedures using
+Augmented Reality, AI voice assistance and assessments.
+</p>
+
+<div class="project-tech">
+AR • AI • Android • Voice • Offline
+</div>
+
+</article>
+
+
+<!-- PROJECT 2 -->
+
+<article class="project">
+
+<span class="project-number">
+PROJECT 02
+</span>
+
+<h3>
+Call Shield
+</h3>
+
+<p>
+A mobile security prototype designed to detect suspicious
+activities and possible cyber-fraud indicators while a
+phone call is taking place.
+</p>
+
+<div class="project-tech">
+Android • Kotlin • Security • Risk Detection
+</div>
+
+</article>
+
+
+<!-- PROJECT 3 -->
+
+<article class="project">
+
+<span class="project-number">
+PROJECT 03
+</span>
+
+<h3>
+Crisis Map
+</h3>
+
+<p>
+A disaster-management platform concept that connects
+organizations and users with emergency information,
+warnings, disaster locations and potential assistance.
+</p>
+
+<div class="project-tech">
+Web • Maps • Disaster Management • AI
+</div>
+
+</article>
+
+
+<!-- PROJECT 4 -->
+
+<article class="project">
+
+<span class="project-number">
+PROJECT 04
+</span>
+
+<h3>
+Personal AI Portfolio
+</h3>
+
+<p>
+A futuristic developer portfolio designed to present
+projects, technical skills, education and achievements
+through an interactive modern interface.
+</p>
+
+<div class="project-tech">
+HTML • CSS • JavaScript
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     EDUCATION
+========================= -->
+
+<section class="content" id="education">
+
+<div class="section-title">
+<span class="section-number">04</span>
+<h2>Education & Achievements</h2>
+</div>
+
+<div class="two-column">
+
+<div class="glass">
+
+<h3>
+Education
+</h3>
+
+<p>
+
+<strong>B.Tech CSE – Data Science & Artificial Intelligence</strong>
+<br><br>
+
+Dr. M.G.R. Educational and Research Institute,
+Chennai
+
+<br><br>
+
+Expected Graduation: 2029
+
+<br><br>
+
+CGPA: 8.54
+
+</p>
+
+</div>
+
+
+<div class="glass">
+
+<h3>
+Achievements
+</h3>
+
+<p>
+
+• Participating in Smart India Hackathon
+
+<br><br>
+
+• Working on SIH26041 – AR-Based Vocational
+Training Simulator for Industrial Safety
+
+<br><br>
+
+• Developing multiple AI, software and web
+development prototypes
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     LANGUAGES
+========================= -->
+
+<section class="content">
+
+<div class="section-title">
+<span class="section-number">05</span>
+<h2>Languages</h2>
+</div>
+
+<div class="glass">
+
+<div class="skills">
+
+<span class="skill">English</span>
+<span class="skill">Telugu</span>
+<span class="skill">Tamil</span>
+<span class="skill">Hindi</span>
+<span class="skill">Basic French</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="content contact" id="contact">
+
+<div class="section-title" style="justify-content:center">
+
+<span class="section-number">
+06
+</span>
+
+<h2>
+Let's Connect
+</h2>
+
+</div>
+
+<div class="glass contact-box">
+
+<p>
+Interested in collaborating, building projects,
+or discussing technology and AI?
+</p>
+
+<div class="links">
+
+<a href="mailto:YOUR_EMAIL@gmail.com">
+Email
+</a>
+
+<a href="https://github.com/YOUR_USERNAME"
+target="_blank">
+GitHub
+</a>
+
+<a href="https://linkedin.com/in/YOUR_USERNAME"
+target="_blank">
+LinkedIn
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+© <span id="year"></span>
+Cheemakurthi Charan · Built with curiosity.
+
+</footer>
+
+
+<script>
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+/* Mouse 3D effect */
+
+const orb = document.querySelector(".orb");
+
+document.addEventListener("mousemove", function(e) {
+
+const x =
+(e.clientX / window.innerWidth - 0.5) * 20;
+
+const y =
+(e.clientY / window.innerHeight - 0.5) * 20;
+
+orb.style.transform =
+`rotateY(${x}deg) rotateX(${-y}deg)`;
+
+});
+
+</script>
+
+</body>
+</html>
